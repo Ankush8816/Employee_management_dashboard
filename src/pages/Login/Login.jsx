@@ -11,7 +11,7 @@ const Login = () =>{
        <div className='login-container'>
          <h2>Login here</h2>
          <form className='login-form'>
-           <input type="text" placeholder="Username" />
+           <input type="email" placeholder="Username" />
            <input type="password" placeholder="Password" />
            <Button text="Login" onClickfunc={() => {}} />
          </form>
