@@ -17,7 +17,7 @@
     align-items: center;
     padding: 20px;
     width: 30vw;
-    background-color: #716c6c;
+    background-color: #ffbebe;
     border-radius: 10px;
 }
 
@@ -26,4 +26,27 @@ form input{
     padding: 10px;
     width: 100%;
     border-radius: 5px;
+}
+
+.login-form label{
+    align-self: flex-start;
+}
+
+.login-form input[aria-invalid="true"]{
+    border: 2px solid #b42318;
+}
+
+.field-error{
+    align-self: flex-start;
+    color: #b42318;
+    margin: 0 10px 8px;
+}
+
+.form-status{
+    color: #fff;
+}
+
+.error-message{
+    color: #b42318;
+    margin: 10px 0;
 }
