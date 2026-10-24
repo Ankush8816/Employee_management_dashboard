@@ -1,4 +1,5 @@
 import react from 'react'
+import { useNavigate } from 'react-router-dom'
 import Button from '../../components/common/button.jsx'
 import './Login.css'
 import { useForm } from 'react-hook-form'
@@ -14,9 +15,8 @@ const loginSchema =yup.object({
 //login component
 const Login = () =>{
 
-
+const navigate = useNavigate();
     
-
 
 //react-hook-form connection can be added here
 
@@ -29,11 +29,14 @@ const Login = () =>{
 //Authentication logic can be added here
 const onSubmit = (data) => {
     console.log(data);
+    
+
 if(
     data.email === 'Ankushar143@gmail.com' && data.password === 'admin123'
 )
     {   localStorage.setItem('token', 'dummy_token');
         alert('Login successful');
+        navigate('/dashboard');
     }
     else
     {
