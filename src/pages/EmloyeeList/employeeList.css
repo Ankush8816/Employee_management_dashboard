@@ -1,0 +1,125 @@
+.employee-list-page {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 24px;
+}
+
+.employee-list-page h2 {
+    margin: 0 0 28px;
+    color: #17243b;
+    font-size: 30px;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+}
+
+.employee-list-container {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 22px;
+}
+
+.employee-card {
+    position: relative;
+    min-width: 0;
+    overflow: hidden;
+    padding: 26px;
+    color: #526078;
+    background: linear-gradient(145deg, #ffffff 0%, #fbfcff 100%);
+    border: 1px solid #e8edf5;
+    border-radius: 18px;
+    box-shadow: 0 8px 24px rgba(35, 54, 86, 0.07);
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.employee-card::before {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #6d5dfc, #3cb8c9);
+    content: "";
+}
+
+.employee-card:hover {
+    transform: translateY(-5px);
+    border-color: #d8defa;
+    box-shadow: 0 16px 32px rgba(35, 54, 86, 0.13);
+}
+
+.employee-card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 18px;
+}
+
+.employee-card h3 {
+    margin: 0;
+    color: #202d45;
+    font-size: 19px;
+    font-weight: 650;
+    overflow-wrap: anywhere;
+}
+
+.employee-card p {
+    margin: 12px 0 0;
+    font-size: 14px;
+    line-height: 1.55;
+    overflow-wrap: anywhere;
+}
+
+.employee-card .employee-email {
+    margin-top: -10px;
+    color: #77849a;
+    font-size: 13px;
+}
+
+.employee-status {
+    flex-shrink: 0;
+    padding: 6px 11px;
+    color: #16835d;
+    background-color: #e8f7f0;
+    border-radius: 999px;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.2px;
+}
+
+.employee-status.is-inactive {
+    color: #667085;
+    background-color: #f0f2f5;
+}
+
+.employee-status.is-on-leave {
+    color: #a66a08;
+    background-color: #fff4dc;
+}
+
+.employee-card strong {
+    color: #34425b;
+    font-weight: 600;
+}
+
+@media (max-width: 900px) {
+    .employee-list-container {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 600px) {
+    .employee-list-page {
+        padding: 28px 16px;
+    }
+
+    .employee-list-page h2 {
+        margin-bottom: 20px;
+        font-size: 26px;
+    }
+
+    .employee-list-container {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+}
