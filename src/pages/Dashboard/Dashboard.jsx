@@ -8,9 +8,12 @@ const Dashboard = () => {
         localStorage.removeItem('token');
         navigate('/login');
       }
+
+
   return (
     <><div>
       <h1>Welcome to our dashboard</h1>
+      <button onClick={() => navigate('/employees')}>View Employees</button>
       <button onClick={handleLogout}> Logout</button>
     </div></>
   )
