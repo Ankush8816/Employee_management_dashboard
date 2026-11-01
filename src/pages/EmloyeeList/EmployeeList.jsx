@@ -4,7 +4,10 @@ import "./employeeList.css";
 
 const EmployeeList = () => {
     const [employees, setEmployees] = useState([]);
+    const [searchTerm, setSearchTerm] = useState("");
 
+
+// fetching employees from the service and setting them in state
     useEffect(() => {
         const fetchEmployees = async () => {
             const employees = await getEmployees();
@@ -13,17 +16,31 @@ const EmployeeList = () => {
 
         fetchEmployees();
     }, []);
+    const filteredEmployees = employees.filter((employee) =>
+        employee.name.toLowerCase().includes(searchTerm.trim().toLowerCase())
+    );
 
     return (
         <main className="employee-list-page">
             <h2>Employee List</h2>
+            <div className="search-bar">
+                            <input
+                                type="text"
+                                placeholder="Search employees..."
+                                value={searchTerm}
+                                onChange={(event) => setSearchTerm(event.target.value)}
+                            />
+                            
+                        </div>
             <div className="employee-list-container">
-                {employees.map((employee) => {
+                {filteredEmployees.map((employee) => {
                     const statusClass = employee.status
                         .toLowerCase()
                         .replace(" ", "-");
 
                     return (
+                        
+                        
                         <article className="employee-card" key={employee.id}>
                             <div className="employee-card-header">
                                 <h3>{employee.name}</h3>
@@ -37,6 +54,7 @@ const EmployeeList = () => {
                             <p><strong>Location:</strong> {employee.location}</p>
                             <p><strong>Joined:</strong> {employee.joiningDate}</p>
                         </article>
+                       
                     );
                 })}
             </div>
